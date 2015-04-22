@@ -1,0 +1,11 @@
+{
+  "name": "tree",
+  "version": "0.0.0",
+  "description": "tree example",
+  "author": "Filips Alpe",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filipsalpe/tree.git"
+  }
+}
