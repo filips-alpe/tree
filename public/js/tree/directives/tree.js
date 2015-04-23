@@ -23,7 +23,7 @@ define(['tree', 'text!tpl/tree/tree.html', 'tree/controllers/tree'], function (t
                 };
             },
             controller: 'TreeController',
-            controllerAs: 'treeCrtl'
+            controllerAs: 'treeCtrl'
         };
     });
 });

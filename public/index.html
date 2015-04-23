@@ -11,9 +11,26 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body ng-cloak>
-        <section ng-controller="TreeDataController as tree">
-            <tree nodes="tree.structuredData"></tree>
-        </section>
+        <div class="container-fluid">
+            <section class="row" ng-controller="TreeDataController as tree">
+                <div class="panel panel-info col-md-6 col-sm-6 col-lg-6">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Recursive</h3>
+                    </div>
+                    <div class="panel-body">
+                        <tree nodes="tree.structuredData"></tree>
+                    </div>
+                </div>
+                <div class="panel panel-info col-md-6 col-sm-6 col-lg-6">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Iterative</h3>
+                    </div>
+                    <div class="panel-body">
+                        <tree-iterative nodes="tree.flatData"></tree-iterative>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <script src="lib/requirejs/require.js" data-main="js/require-config.js"></script>
     </body>

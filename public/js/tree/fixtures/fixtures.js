@@ -1,11 +1,6 @@
 'use strict';
 
-define(function () {
-    var currentId = 0;
-    var getId = function () {
-        return ++currentId;
-    };
-
+define(['tree/uuid'], function (uuid) {
     var getRandomLabel = function () {
         var names = ['Celine', 'Joeann', 'Jalisa', 'Towanda', 'Dillon', 'Erich', 'Alethia', 'Fabian', 'Rubin'];
         var lastNames = ['Valadez', 'Sledge', 'Forsyth', 'Barney', 'Beasley', 'Schilling', 'Rains', 'Crockett'];
@@ -19,13 +14,13 @@ define(function () {
         currentDepth = currentDepth ? currentDepth + 1 : 1;
         var children = [];
         if (maxDepth > currentDepth) {
-            for (var i = childrenPerLevel; i > 0; i--) {
+            for (var i = childrenPerLevel; i >= 0; i--) {
                 children.push(generateTree(maxDepth, childrenPerLevel, currentDepth));
             }
         }
 
         return {
-            id:       getId(),
+            id:       uuid.next(),
             label:    getRandomLabel(),
             children: children
         };
@@ -35,8 +30,7 @@ define(function () {
         return {
             id: node.id,
             label: node.label,
-            parent: null === parent ? null : parent.id,
-            root: null === parent
+            parent: null === parent ? null : parent.id
         };
     };
 
@@ -58,8 +52,8 @@ define(function () {
             generateTree(1, 2)
         ],
         'flat': flattenTree([
-            generateTree(3, 2),
             generateTree(2, 3),
+            generateTree(3, 2),
             generateTree(1, 2)
         ])
     };
