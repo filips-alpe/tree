@@ -1,7 +1,7 @@
 'use strict';
 
 define(['lodash', 'tree', 'tree/uuid'], function (_, tree, uuid) {
-    tree.controller('TreeController', function () {
+    tree.controller('TreeController', function ($rootScope) {
         this.addChild = function (nodes, node) {
             if (!_.isArray(nodes)) {
                 node = nodes;
@@ -15,20 +15,25 @@ define(['lodash', 'tree', 'tree/uuid'], function (_, tree, uuid) {
                 };
                 nodes.splice(nodes.indexOf(node) + 1, 0, newNode);
             }
+            $rootScope.$emit('tree-data-changed');
         };
 
         this.edit = function (node) {
             node.label = window.prompt('Label?', node.label);
+            $rootScope.$emit('tree-data-changed');
         };
 
-        this.remove = function (nodes, node) {
+        this.remove = function (nodes, node, silent) {
             nodes.splice(nodes.indexOf(node), 1);
 
             nodes.forEach(_.bind(function (item) {
-                if (item.parent === node.id) {
-                    this.remove(nodes, node);
+                if (node.id && item.parent === node.id) {
+                    this.remove(nodes, node, true);
                 }
             }, this));
+            if (!silent) {
+                $rootScope.$emit('tree-data-changed');
+            }
         };
 
         this.getDepth = function (nodes, node) {

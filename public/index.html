@@ -11,6 +11,13 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body ng-cloak>
+        <header class="navbar navbar-default">
+            <div class="container-fluid">
+                <form class="navbar-form navbar-right" ng-controller="TreeDataController as tree">
+                    <button class="btn btn-default" ng-click="tree.resetData()">Reset data</button>
+                </form>
+            </div>
+        </header>
         <div class="container-fluid">
             <section class="row" ng-controller="TreeDataController as tree">
                 <div class="panel panel-info col-md-6 col-sm-6 col-lg-6">

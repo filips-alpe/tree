@@ -10,6 +10,9 @@ require.config({
         'angular-mocks': {
             deps: ['angular']
         },
+        'angular-localstorage': {
+            deps: ['angular']
+        },
         'ui-bootstrap': {
             deps: ['angular']
         }
@@ -33,7 +36,8 @@ require.config({
         'tree/uuid':                      'js/tree/services/uuid',
         'tree/fixtures':                  'js/tree/fixtures/fixtures',
         'ui-bootstrap':                   'lib/angular-bootstrap/ui-bootstrap-tpls',
-        lodash:                           'lib/lodash/lodash'
+        lodash:                           'lib/lodash/lodash',
+        'angular-localstorage':           'lib/angular-local-storage/dist/angular-local-storage'
     }
 });
 

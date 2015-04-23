@@ -46,15 +46,19 @@ define(['tree/uuid'], function (uuid) {
     };
 
     return {
-        'structured': [
-            generateTree(3, 2),
-            generateTree(2, 3),
-            generateTree(1, 2)
-        ],
-        'flat': flattenTree([
-            generateTree(2, 3),
-            generateTree(3, 2),
-            generateTree(1, 2)
-        ])
+        structured: function () {
+            return [
+                generateTree(3, 2),
+                generateTree(2, 3),
+                generateTree(1, 2)
+            ];
+        },
+        flat: function () {
+            return flattenTree([
+                generateTree(2, 3),
+                generateTree(3, 2),
+                generateTree(1, 2)
+            ]);
+        }
     };
 });
