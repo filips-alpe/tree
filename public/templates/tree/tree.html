@@ -1,0 +1,10 @@
+<ul class="tree-list-unstyled">
+    <li ng-repeat="node in nodes">
+        <i class="fa fa-square"></i>
+        {{ node.label }}
+        <i class="fa fa-edit" ng-click="treeCrtl.edit(node)"></i>
+        <i class="fa fa-remove" ng-click="treeCrtl.remove(nodes, node)"></i>
+        <i class="fa fa-plus" ng-click="treeCrtl.addChild(node)"></i>
+        <tree nodes="node.children" ng-if="node.children && node.children.length"></tree>
+    </li>
+</ul>

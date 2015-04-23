@@ -1,5 +1,5 @@
 'use strict';
 
-define(['angular'], function (angular) {
-    return angular.module('app', []);
+define(['angular', 'tree', 'tree/dependencies'], function (angular) {
+    return angular.module('app', ['tree']);
 });

@@ -7,9 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.css">
         <link rel="stylesheet" href="main.css">
     </head>
     <body ng-cloak>
+        <section ng-controller="TreeDataController as tree">
+            <tree nodes="tree.nodes"></tree>
+        </section>
 
         <script src="lib/requirejs/require.js" data-main="js/require-config.js"></script>
     </body>

@@ -9,8 +9,7 @@ module.exports = function (grunt) {
         jshint: {
             all: [
                 'Gruntfile.js',
-                'public/**/*.js',
-                '!public/lib/**/*.js'
+                'public/js/**/*.js'
             ],
             options: {
                 jshintrc: '.jshintrc',
@@ -20,8 +19,7 @@ module.exports = function (grunt) {
         jscs: {
             all: [
                 'Gruntfile.js',
-                'public/**/*.js',
-                '!public/lib/**/*.js'
+                'public/js/**/*.js'
             ],
             options: {
                 config: '.jscsrc',
@@ -37,7 +35,7 @@ module.exports = function (grunt) {
             test: {
                 src: 'public/lib/requirejs/require.js',
                 options: {
-                    specs: 'tests/*.js',
+                    specs: 'tests/**/*.js',
                     template: require('grunt-template-jasmine-requirejs'),
                     templateOptions: {
                         requireConfigFile: 'public/js/require-config.js',
